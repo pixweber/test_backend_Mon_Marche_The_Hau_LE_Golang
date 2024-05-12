@@ -1,4 +1,5 @@
 #Tickets de caisse
+
 ## Introduction
 Ce projet est une application backend écrite en Golang pour gérer un système de traitement de tickets de caisse envoyés par les clients via un webhook HTTP, `POST /ticket`. L'objectif principal est de stocker ces tickets dans une base de données PostgreSQL tout en prenant en charge un volume potentiellement important de requêtes en utilisant un système de event broker RabbitMQ.
 
