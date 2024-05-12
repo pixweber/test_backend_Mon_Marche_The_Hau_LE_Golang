@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: monmarche_web
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - rabbitmq
+
+  db:
+    container_name: monmarche_postgres
+    image: postgres
+    environment:
+      POSTGRES_DB: tickets
+      POSTGRES_USER: monmarche
+      POSTGRES_PASSWORD: monmarche
+    ports:
+      - "5432:5432"
+
+  rabbitmq:
+    container_name: monmarche_rabbitmq
+    image: rabbitmq
+    ports:
+      - "5672:5672"
+
+networks:
+  dev-network:
+    driver: bridge
